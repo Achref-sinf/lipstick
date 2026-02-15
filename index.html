@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Rouge Élégance · Lipstick</title>
+  <style>
+    /* ========== style.css ========== */
+    /* MOBILE-FIRST • DESIGN ÉPURÉ • ÉLÉGANT • POUR LIPSTICK */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #fbfaf8;
+      color: #1e2b2c;
+      line-height: 1.5;
+      padding: 0 0 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem;
+      background: white;
+      box-shadow: 0 0 30px rgba(0,0,0,0.02);
+      border-radius: 28px 28px 0 0;
+      margin-top: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #b13e3e;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    /* ===== CARROUSEL D'IMAGES TACTILE AVEC INFINI ===== */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      margin: 1.2rem 0 1rem;
+      background: #f4f2f0;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease-out;
+      cursor: grab;
+    }
+
+    .carousel-track:active {
+      cursor: grabbing;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Indicateurs de position (petits points) */
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d4cfc9;
+      transition: all 0.2s ease;
+    }
+
+    .indicator.active {
+      background: #b13e3e;
+      width: 20px;
+      border-radius: 10px;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #b13e3e;
+      display: inline-block;
+      padding: 0.2rem 0;
+      border-bottom: 3px solid #d4b68a;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      color: #3a4e4f;
+      background: #f6f4f1;
+      padding: 1.2rem 1.3rem;
+      border-radius: 20px;
+      margin: 1.2rem 0 1.8rem;
+      border-left: 5px solid #b99a7b;
+      font-weight: 350;
+    }
+
+    /* formulaire */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #4b5b5c;
+      margin-bottom: 0.4rem;
+    }
+
+    label span {
+      color: #b4615a;
+      margin-left: 2px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      background-color: white;
+      border: 1.5px solid #e2e6e7;
+      border-radius: 16px;
+      transition: 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #b13e3e;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(177,62,62,0.08);
+    }
+
+    /* ---------- RADIO BOUTONS AMÉLIORÉS - SÉLECTION AVEC CERCLE REMPLI ---------- */
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .radio-group div {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #f5f7f6;
+      padding: 0.7rem 1.5rem 0.7rem 1rem;
+      border-radius: 50px;
+      border: 2px solid #d0dbd8;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      position: relative;
+      flex: 1 1 auto;
+    }
+
+    /* AMÉLIORATION: Indicateur de sélection - cercle rempli uniquement */
+    .radio-group div:has(input:checked) {
+      background: #ffe6e6;
+      border-color: #b13e3e;
+      border-width: 2.5px;
+      box-shadow: 0 0 0 4px rgba(177,62,62,0.25);
+    }
+
+    /* Supprimer le checkmark */
+    .radio-group div:has(input:checked)::after {
+      display: none;
+    }
+
+    .radio-group input[type="radio"] {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0;
+      accent-color: #b13e3e;
+      transform: scale(1.2);
+      border-radius: 50%;
+      border: 2px solid #b13e3e;
+      cursor: pointer;
+      -webkit-appearance: radio;
+      -moz-appearance: radio;
+      appearance: radio;
+    }
+
+    .radio-group label {
+      display: inline;
+      text-transform: none;
+      font-weight: 650;
+      color: #1d3e3b;
+      margin-bottom: 0;
+      font-size: 1.1rem;
+      letter-spacing: normal;
+      cursor: pointer;
+    }
+
+    /* Badge de prix pour livraison */
+    .delivery-badge {
+      background: #b13e3e !important;
+      color: white !important;
+      padding: 4px 12px !important;
+      border-radius: 40px !important;
+      margin-left: 8px !important;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      white-space: nowrap;
+    }
+
+    /* ---------- COULEURS DE LIPSTICK ---------- */
+    .color-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .color-option {
+      flex: 1 1 calc(33.333% - 1rem);
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .color-option input[type="radio"] {
+      display: none;
+    }
+
+    .color-option label {
+      display: block;
+      padding: 0.8rem 0.5rem;
+      background: #f5f7f6;
+      border: 2px solid #d0dbd8;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: normal;
+      color: #1d3e3b;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 0;
+    }
+
+    .color-option input[type="radio"]:checked + label {
+      background: #ffe6e6;
+      border-color: #b13e3e;
+      border-width: 2.5px;
+      box-shadow: 0 0 0 4px rgba(177,62,62,0.25);
+      color: #b13e3e;
+    }
+
+    /* ---------- STYLES POUR CHAMPS INVALIDES (VALIDATION UX) ---------- */
+    .field-error {
+      border: 2.5px solid #c03a2b !important;
+      background-color: #fff6f5 !important;
+      box-shadow: 0 0 0 3px rgba(192,58,43,0.15) !important;
+      animation: shake 0.3s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- QUANTITÉ : STYLE ROULETTE/STEPPER ÉLÉGANT ---------- */
+    .quantity-stepper {
+      display: flex;
+      align-items: center;
+      background: white;
+      border: 2px solid #cbd9d4;
+      border-radius: 60px;
+      overflow: hidden;
+      width: fit-content;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    }
+
+    .quantity-stepper button {
+      background: #edf3f1;
+      border: none;
+      width: 54px;
+      height: 58px;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #b13e3e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.1s;
+      padding-bottom: 6px;
+    }
+
+    .quantity-stepper button:active {
+      background: #c8dbd4;
+      color: #8a2f2f;
+    }
+
+    .quantity-stepper input {
+      width: 80px;
+      text-align: center;
+      border: none;
+      border-radius: 0;
+      padding: 0.9rem 0;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #b13e3e;
+      background: white;
+      -moz-appearance: textfield;
+    }
+
+    .quantity-stepper input::-webkit-outer-spin-button,
+    .quantity-stepper input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* prix total et frais */
+    .total-price {
+      background: #ffe6e6;
+      padding: 1.2rem 1.5rem;
+      border-radius: 30px;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #b13e3e;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #d4a5a5;
+      margin: 0.8rem 0 0.5rem;
+    }
+
+    .total-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: none;
+      color: #b13e3e;
+    }
+
+    .frais-detail {
+      font-size: 0.9rem;
+      color: #2d5e55;
+      margin-top: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      background: #f0f9f5;
+      padding: 0.6rem 1.3rem;
+      border-radius: 40px;
+      border: 1px solid #c3dbd2;
+      font-weight: 500;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 1.2rem 1.8rem;
+      background: #b13e3e;
+      color: white;
+      border: none;
+      border-radius: 60px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-top: 1.8rem;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      box-shadow: 0 10px 20px rgba(177,62,62,0.25);
+    }
+
+    .btn:hover {
+      background: #8a2f2f;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .error-msg {
+      color: #c03a2b;
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+      padding-left: 0.8rem;
+      font-weight: 600;
+    }
+
+    .success-message {
+      background: #e1f3e8;
+      color: #0b4f3a;
+      padding: 1rem;
+      border-radius: 20px;
+      margin-top: 1.8rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #6e8985;
+    }
+
+    @media (max-width: 380px) {
+      .container { padding: 1rem; }
+      h1 { font-size: 1.7rem; }
+      .quantity-stepper button { width: 48px; height: 52px; font-size: 2rem; }
+      .quantity-stepper input { width: 70px; font-size: 1.4rem; }
+      .radio-group div { padding: 0.6rem 1rem; }
+      .color-option { flex: 1 1 calc(50% - 1rem); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Rouge&nbsp;Élégance</h1>
+    
+    <!-- ===== CARROUSEL D'IMAGES TACTILE INFINI (5 IMAGES) ===== -->
+    <div class="carousel-container" id="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide"><img src="w5.jpg" alt="Rouge Élégance - Teinte 5" loading="lazy"></div>
+        <div class="carousel-slide"><img src="w1.jpg" alt="Rouge Élégance - Teinte 1" loading="lazy"></div>
+        <div class="carousel-slide"><img src="w2.jpg" alt="Rouge Élégance - Teinte 2" loading="lazy"></div>
+        <div class="carousel-slide"><img src="w3.jpg" alt="Rouge Élégance - Teinte 3" loading="lazy"></div>
+        <div class="carousel-slide"><img src="w4.jpg" alt="Rouge Élégance - Teinte 4" loading="lazy"></div>
+        <div class="carousel-slide"><img src="w5.jpg" alt="Rouge Élégance - Teinte 5" loading="lazy"></div>
+        <div class="carousel-slide"><img src="w1.jpg" alt="Rouge Élégance - Teinte 1" loading="lazy"></div>
+      </div>
+    </div>
+    
+    <!-- Indicateurs de position (points) -->
+    <div class="carousel-indicators" id="carouselIndicators">
+      <span class="indicator active"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+    </div>
+    
+    <div class="price" id="prixUnitaire">1 800 DZD</div>
+    
+    <div class="description">
+      ✦ Formule longue tenue • Hydratant • Fini velouté ✦<br>
+      Rouge à lèvres crémeux aux pigments naturels. Livraison rapide dans toute l'Algérie.
+    </div>
+    
+    <!-- ===== ORDER FORM ===== -->
+    <form id="orderForm">
+      <!-- Nom et Prénom -->
+      <div class="form-group">
+        <label>Nom et Prénom <span>*</span></label>
+        <input type="text" id="nom" placeholder="Ahmed Benali" autocomplete="name">
+        <div class="error-msg" id="errorNom"></div>
+      </div>
+      
+      <!-- Téléphone -->
+      <div class="form-group">
+        <label>Téléphone <span>*</span></label>
+        <input type="tel" id="tel" placeholder="0550 12 34 56" autocomplete="tel">
+        <div class="error-msg" id="errorTel"></div>
+      </div>
+      
+      <!-- COULEUR DU LIPSTICK -->
+      <div class="form-group">
+        <label>Couleur <span>*</span></label>
+        <div class="color-options">
+          <div class="color-option">
+            <input type="radio" id="rouge" name="couleur" value="Rouge Classique" checked>
+            <label for="rouge">❤️ Rouge</label>
+          </div>
+          <div class="color-option">
+            <input type="radio" id="rose" name="couleur" value="Rose Tendre">
+            <label for="rose">🌸 Rose</label>
+          </div>
+          <div class="color-option">
+            <input type="radio" id="nude" name="couleur" value="Nude Élégant">
+            <label for="nude">✨ Nude</label>
+          </div>
+          <div class="color-option">
+            <input type="radio" id="bordeaux" name="couleur" value="Bordeaux Profond">
+            <label for="bordeaux">🍷 Bordeaux</label>
+          </div>
+          <div class="color-option">
+            <input type="radio" id="corail" name="couleur" value="Corail Lumineux">
+            <label for="corail">🧡 Corail</label>
+          </div>
+          <div class="color-option">
+            <input type="radio" id="prune" name="couleur" value="Prune Mystique">
+            <label for="prune">🟣 Prune</label>
+          </div>
+        </div>
+      </div>
+      
+      <!-- WILAYA avec codes et frais -->
+      <div class="form-group">
+        <label>Wilaya <span>*</span></label>
+        <select id="wilaya">
+          <option value="" disabled selected>— Sélectionnez une wilaya —</option>
+          <option value="01 - Adrar">01 - Adrar (900 DA)</option>
+          <option value="02 - Chlef">02 - Chlef (450 DA)</option>
+          <option value="03 - Laghouat">03 - Laghouat (600 DA)</option>
+          <option value="04 - Oum El Bouaghi">04 - Oum El Bouaghi (450 DA)</option>
+          <option value="05 - Batna">05 - Batna (450 DA)</option>
+          <option value="06 - Béjaïa">06 - Béjaïa (450 DA)</option>
+          <option value="07 - Biskra">07 - Biskra (600 DA)</option>
+          <option value="08 - Béchar">08 - Béchar (650 DA)</option>
+          <option value="09 - Blida">09 - Blida (300 DA)</option>
+          <option value="10 - Bouira">10 - Bouira (450 DA)</option>
+          <option value="11 - Tamanrasset">11 - Tamanrasset (1050 DA)</option>
+          <option value="12 - Tébessa">12 - Tébessa (450 DA)</option>
+          <option value="13 - Tlemcen">13 - Tlemcen (500 DA)</option>
+          <option value="14 - Tiaret">14 - Tiaret (450 DA)</option>
+          <option value="15 - Tizi Ouzou">15 - Tizi Ouzou (450 DA)</option>
+          <option value="16 - Alger">16 - Alger (350 DA)</option>
+          <option value="17 - Djelfa">17 - Djelfa (600 DA)</option>
+          <option value="18 - Jijel">18 - Jijel (450 DA)</option>
+          <option value="19 - Sétif">19 - Sétif (450 DA)</option>
+          <option value="20 - Saïda">20 - Saïda (450 DA)</option>
+          <option value="21 - Skikda">21 - Skikda (450 DA)</option>
+          <option value="22 - Sidi Bel Abbès">22 - Sidi Bel Abbès (450 DA)</option>
+          <option value="23 - Annaba">23 - Annaba (450 DA)</option>
+          <option value="24 - Guelma">24 - Guelma (450 DA)</option>
+          <option value="25 - Constantine">25 - Constantine (450 DA)</option>
+          <option value="26 - Médéa">26 - Médéa (450 DA)</option>
+          <option value="27 - Mostaganem">27 - Mostaganem (450 DA)</option>
+          <option value="28 - M'Sila">28 - M'Sila (500 DA)</option>
+          <option value="29 - Mascara">29 - Mascara (450 DA)</option>
+          <option value="30 - Ouargla">30 - Ouargla (600 DA)</option>
+          <option value="31 - Oran">31 - Oran (450 DA)</option>
+          <option value="32 - El Bayadh">32 - El Bayadh (650 DA)</option>
+          <option value="33 - Illizi">33 - Illizi (1050 DA)</option>
+          <option value="34 - Bordj Bou Arreridj">34 - Bordj Bou Arreridj (450 DA)</option>
+          <option value="35 - Boumerdès">35 - Boumerdès (450 DA)</option>
+          <option value="36 - El Tarf">36 - El Tarf (450 DA)</option>
+          <option value="37 - Tindouf">37 - Tindouf (1050 DA)</option>
+          <option value="38 - Tissemsilt">38 - Tissemsilt (450 DA)</option>
+          <option value="39 - El Oued">39 - El Oued (600 DA)</option>
+          <option value="40 - Khenchela">40 - Khenchela (450 DA)</option>
+          <option value="41 - Souk Ahras">41 - Souk Ahras (450 DA)</option>
+          <option value="42 - Tipaza">42 - Tipaza (450 DA)</option>
+          <option value="43 - Mila">43 - Mila (450 DA)</option>
+          <option value="44 - Aïn Defla">44 - Aïn Defla (450 DA)</option>
+          <option value="45 - Naâma">45 - Naâma (650 DA)</option>
+          <option value="46 - Aïn Témouchent">46 - Aïn Témouchent (450 DA)</option>
+          <option value="47 - Ghardaïa">47 - Ghardaïa (600 DA)</option>
+          <option value="48 - Relizane">48 - Relizane (450 DA)</option>
+          <option value="49 - El M'Ghair">49 - El M'Ghair (600 DA)</option>
+          <option value="50 - El Menia">50 - El Menia (600 DA)</option>
+          <option value="51 - Ouled Djellal">51 - Ouled Djellal (550 DA)</option>
+          <option value="52 - Bordj Baji Mokhtar">52 - Bordj Baji Mokhtar (1050 DA)</option>
+          <option value="53 - Béni Abbès">53 - Béni Abbès (650 DA)</option>
+          <option value="54 - Timimoun">54 - Timimoun (650 DA)</option>
+          <option value="55 - Touggourt">55 - Touggourt (600 DA)</option>
+          <option value="56 - Djanet">56 - Djanet (1050 DA)</option>
+          <option value="57 - In Salah">57 - In Salah (900 DA)</option>
+          <option value="58 - In Guezzam">58 - In Guezzam (1050 DA)</option>
+        </select>
+        <div class="error-msg" id="errorWilaya"></div>
+      </div>
+      
+      <!-- Adresse complète -->
+      <div class="form-group">
+        <label>Adresse complète <span>*</span></label>
+        <input type="text" id="adresse" placeholder="N°, rue, cité, bâtiment...">
+        <div class="error-msg" id="errorAdresse"></div>
+      </div>
+      
+      <!-- TYPE DE LIVRAISON : RADIO BOUTONS -->
+      <div class="form-group">
+        <label>Type de livraison <span>*</span></label>
+        <div class="radio-group">
+          <div>
+            <input type="radio" id="stopdesk" name="livraisonType" value="Stop Desk" checked>
+            <label for="stopdesk">📦 Stop Desk (الى المكتب)<span class="delivery-badge" id="stopdeskPrice">0 DA</span></label>
+          </div>
+          <div>
+            <input type="radio" id="domicile" name="livraisonType" value="Livraison à domicile">
+            <label for="domicile">🚚 À domicile (الى البيت)<span class="delivery-badge" id="domicilePrice">0 DA</span></label>
+          </div>
+        </div>
+      </div>
+      
+      <!-- QUANTITÉ : STE PARFAIT (boutons + et -) -->
+      <div class="form-group">
+        <label>Quantité <span>*</span></label>
+        <div class="quantity-stepper">
+          <button type="button" id="moinsBtn">−</button>
+          <input type="number" id="quantite" value="1" min="1" step="1" readonly>
+          <button type="button" id="plusBtn">+</button>
+        </div>
+      </div>
+      
+      <!-- PRIX TOTAL + DÉTAIL FRAIS -->
+      <div class="total-price">
+        <span class="total-label">💰 Total</span>
+        <span id="totalAffichage">2 250 DZD</span>
+      </div>
+      <div class="frais-detail" id="fraisDetail">
+        <span>Produit: 1 800 DZD x1</span>
+        <span>Livraison: 450 DA</span>
+      </div>
+      
+      <button type="submit" class="btn">💄 Commander maintenant</button>
+    </form>
+    
+    <div id="formFeedback"></div>
+    <div class="footer-note">⏚ Livraison express dans toute l'Algérie • Paiement à la livraison</div>
+  </div>
+
+  <!-- ===== script.js avec carrousel infini ===== -->
+  <script>
+    // === PRIX UNITAIRE FIXE ===
+    const PRIX_UNITAIRE = 1800;
+
+    // --- DONNÉES DES FRAIS DE LIVRAISON ---
+    const FRAIS_WILAYA = {
+      "01 - Adrar": { stopdesk: 900, domicile: 1400 },
+      "02 - Chlef": { stopdesk: 450, domicile: 750 },
+      "03 - Laghouat": { stopdesk: 600, domicile: 950 },
+      "04 - Oum El Bouaghi": { stopdesk: 450, domicile: 800 },
+      "05 - Batna": { stopdesk: 450, domicile: 800 },
+      "06 - Béjaïa": { stopdesk: 450, domicile: 800 },
+      "07 - Biskra": { stopdesk: 600, domicile: 950 },
+      "08 - Béchar": { stopdesk: 650, domicile: 1100 },
+      "09 - Blida": { stopdesk: 300, domicile: 400 },
+      "10 - Bouira": { stopdesk: 450, domicile: 750 },
+      "11 - Tamanrasset": { stopdesk: 1050, domicile: 1600 },
+      "12 - Tébessa": { stopdesk: 450, domicile: 850 },
+      "13 - Tlemcen": { stopdesk: 500, domicile: 850 },
+      "14 - Tiaret": { stopdesk: 450, domicile: 800 },
+      "15 - Tizi Ouzou": { stopdesk: 450, domicile: 750 },
+      "16 - Alger": { stopdesk: 350, domicile: 500 },
+      "17 - Djelfa": { stopdesk: 600, domicile: 950 },
+      "18 - Jijel": { stopdesk: 450, domicile: 800 },
+      "19 - Sétif": { stopdesk: 450, domicile: 750 },
+      "20 - Saïda": { stopdesk: 450, domicile: 800 },
+      "21 - Skikda": { stopdesk: 450, domicile: 800 },
+      "22 - Sidi Bel Abbès": { stopdesk: 450, domicile: 800 },
+      "23 - Annaba": { stopdesk: 450, domicile: 800 },
+      "24 - Guelma": { stopdesk: 450, domicile: 800 },
+      "25 - Constantine": { stopdesk: 450, domicile: 800 },
+      "26 - Médéa": { stopdesk: 450, domicile: 750 },
+      "27 - Mostaganem": { stopdesk: 450, domicile: 800 },
+      "28 - M'Sila": { stopdesk: 500, domicile: 850 },
+      "29 - Mascara": { stopdesk: 450, domicile: 800 },
+      "30 - Ouargla": { stopdesk: 600, domicile: 950 },
+      "31 - Oran": { stopdesk: 450, domicile: 800 },
+      "32 - El Bayadh": { stopdesk: 650, domicile: 1100 },
+      "33 - Illizi": { stopdesk: 1050, domicile: 1600 },
+      "34 - Bordj Bou Arreridj": { stopdesk: 450, domicile: 750 },
+      "35 - Boumerdès": { stopdesk: 450, domicile: 750 },
+      "36 - El Tarf": { stopdesk: 450, domicile: 800 },
+      "37 - Tindouf": { stopdesk: 1050, domicile: 1600 },
+      "38 - Tissemsilt": { stopdesk: 450, domicile: 800 },
+      "39 - El Oued": { stopdesk: 600, domicile: 950 },
+      "40 - Khenchela": { stopdesk: 450, domicile: 800 },
+      "41 - Souk Ahras": { stopdesk: 450, domicile: 800 },
+      "42 - Tipaza": { stopdesk: 450, domicile: 750 },
+      "43 - Mila": { stopdesk: 450, domicile: 800 },
+      "44 - Aïn Defla": { stopdesk: 450, domicile: 750 },
+      "45 - Naâma": { stopdesk: 650, domicile: 1100 },
+      "46 - Aïn Témouchent": { stopdesk: 450, domicile: 800 },
+      "47 - Ghardaïa": { stopdesk: 600, domicile: 950 },
+      "48 - Relizane": { stopdesk: 450, domicile: 800 },
+      "49 - El M'Ghair": { stopdesk: 600, domicile: 950 },
+      "50 - El Menia": { stopdesk: 600, domicile: 1000 },
+      "51 - Ouled Djellal": { stopdesk: 550, domicile: 950 },
+      "52 - Bordj Baji Mokhtar": { stopdesk: 1050, domicile: 1600 },
+      "53 - Béni Abbès": { stopdesk: 650, domicile: 1000 },
+      "54 - Timimoun": { stopdesk: 650, domicile: 1400 },
+      "55 - Touggourt": { stopdesk: 600, domicile: 950 },
+      "56 - Djanet": { stopdesk: 1050, domicile: 1600 },
+      "57 - In Salah": { stopdesk: 900, domicile: 1600 },
+      "58 - In Guezzam": { stopdesk: 1050, domicile: 1600 }
+    };
+
+    // --- DOM ÉLÉMENTS ---
+    const quantiteInput = document.getElementById('quantite');
+    const moinsBtn = document.getElementById('moinsBtn');
+    const plusBtn = document.getElementById('plusBtn');
+    const totalSpan = document.getElementById('totalAffichage');
+    const fraisDetail = document.getElementById('fraisDetail');
+    const wilayaSelect = document.getElementById('wilaya');
+    const stopdeskRadio = document.getElementById('stopdesk');
+    const domicileRadio = document.getElementById('domicile');
+    const stopdeskPriceSpan = document.getElementById('stopdeskPrice');
+    const domicilePriceSpan = document.getElementById('domicilePrice');
+
+    // --- FONCTIONS DE GESTION DES FRAIS ---
+    function getFraisWilaya() {
+      const selected = wilayaSelect.value;
+      if (!selected || !FRAIS_WILAYA[selected]) return { stopdesk: 0, domicile: 0 };
+      
+      const frais = FRAIS_WILAYA[selected];
+      return {
+        stopdesk: frais.stopdesk || 0,
+        domicile: frais.domicile || 0
+      };
+    }
+
+    function getFraisActuel() {
+      const frais = getFraisWilaya();
+      return stopdeskRadio.checked ? frais.stopdesk : frais.domicile;
+    }
+
+    // Mise à jour de l'affichage des prix dans les badges
+    function updateDeliveryPrices() {
+      const frais = getFraisWilaya();
+      
+      if (frais.stopdesk > 0) {
+        stopdeskPriceSpan.textContent = frais.stopdesk + ' DA';
+        stopdeskPriceSpan.style.opacity = '1';
+      } else {
+        stopdeskPriceSpan.textContent = 'Non disponible';
+        stopdeskPriceSpan.style.opacity = '0.7';
+        if (stopdeskRadio.checked && frais.stopdesk === 0) {
+          domicileRadio.checked = true;
+        }
+      }
+      
+      if (frais.domicile > 0) {
+        domicilePriceSpan.textContent = frais.domicile + ' DA';
+        domicilePriceSpan.style.opacity = '1';
+      } else {
+        domicilePriceSpan.textContent = 'Non disponible';
+        domicilePriceSpan.style.opacity = '0.7';
+      }
+    }
+
+    // --- FONCTION PRINCIPALE DE MISE À JOUR DU PRIX TOTAL ---
+    function updatePrixTotal() {
+      let qty = parseInt(quantiteInput.value, 10);
+      if (isNaN(qty) || qty < 1) qty = 1;
+      
+      const fraisLivraison = getFraisActuel();
+      
+      const totalProduit = PRIX_UNITAIRE * qty;
+      const totalGeneral = totalProduit + fraisLivraison;
+      
+      totalSpan.textContent = totalGeneral.toLocaleString('fr-DZ') + ' DZD';
+      
+      let produitText = `💄 Lipstick: ${PRIX_UNITAIRE.toLocaleString('fr-DZ')} DZD x${qty}`;
+      let livraisonText = '';
+      
+      if (fraisLivraison > 0) {
+        let typeText = stopdeskRadio.checked ? 'Stop Desk' : 'Domicile';
+        livraisonText = `📦 ${typeText}: ${fraisLivraison.toLocaleString('fr-DZ')} DZD`;
+      } else {
+        livraisonText = `📦 Livraison: sélectionnez wilaya`;
+      }
+      
+      fraisDetail.innerHTML = `<span>${produitText}</span><span>${livraisonText}`;
+      
+      updateDeliveryPrices();
+    }
+
+    // --- ÉVÈNEMENTS STEPPER (quantité) ---
+    function incrementer() {
+      let val = parseInt(quantiteInput.value, 10);
+      quantiteInput.value = isNaN(val) ? 1 : val + 1;
+      updatePrixTotal();
+    }
+    function decrementer() {
+      let val = parseInt(quantiteInput.value, 10);
+      if (val > 1) quantiteInput.value = val - 1;
+      updatePrixTotal();
+    }
+
+    moinsBtn.addEventListener('click', decrementer);
+    plusBtn.addEventListener('click', incrementer);
+    
+    wilayaSelect.addEventListener('change', updatePrixTotal);
+    stopdeskRadio.addEventListener('change', updatePrixTotal);
+    domicileRadio.addEventListener('change', updatePrixTotal);
+
+    window.addEventListener('DOMContentLoaded', function() {
+      updatePrixTotal();
+    });
+
+    // ========== CARROUSEL INFINI TACTILE ==========
+    const carouselTrack = document.getElementById('carouselTrack');
+    const indicators = document.querySelectorAll('.indicator');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+    const originalSlidesCount = 5;
+    
+    let currentIndex = 1;
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+
+    function updateCarousel(index, animate = true) {
+      carouselTrack.style.transition = animate ? 'transform 0.3s ease-out' : 'none';
+      
+      const slideWidth = carouselTrack.clientWidth;
+      carouselTrack.style.transform = `translateX(-${index * slideWidth}px)`;
+      
+      let indicatorIndex;
+      if (index === 0) indicatorIndex = originalSlidesCount - 1;
+      else if (index === totalSlides - 1) indicatorIndex = 0;
+      else indicatorIndex = index - 1;
+      
+      indicators.forEach((ind, i) => {
+        if (i === indicatorIndex) {
+          ind.classList.add('active');
+        } else {
+          ind.classList.remove('active');
+        }
+      });
+      
+      currentIndex = index;
+    }
+
+    function checkAndJump() {
+      const slideWidth = carouselTrack.clientWidth;
+      
+      if (currentIndex === totalSlides - 1) {
+        setTimeout(() => {
+          carouselTrack.style.transition = 'none';
+          carouselTrack.style.transform = `translateX(-${1 * slideWidth}px)`;
+          currentIndex = 1;
+        }, 300);
+      }
+      
+      if (currentIndex === 0) {
+        setTimeout(() => {
+          carouselTrack.style.transition = 'none';
+          carouselTrack.style.transform = `translateX(-${(totalSlides - 2) * slideWidth}px)`;
+          currentIndex = totalSlides - 2;
+        }, 300);
+      }
+    }
+
+    window.addEventListener('load', function() {
+      updateCarousel(1, false);
+    });
+
+    window.addEventListener('resize', function() {
+      updateCarousel(currentIndex, false);
+    });
+
+    carouselTrack.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      currentX = startX;
+      isDragging = true;
+      carouselTrack.style.transition = 'none';
+      e.preventDefault();
+    }, { passive: false });
+
+    carouselTrack.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      
+      currentX = e.touches[0].clientX;
+      const diff = currentX - startX;
+      const slideWidth = carouselTrack.clientWidth;
+      
+      const maxDrag = slideWidth * 0.3;
+      const boundedDiff = Math.max(-maxDrag, Math.min(maxDrag, diff));
+      
+      carouselTrack.style.transform = `translateX(calc(-${currentIndex * slideWidth}px + ${boundedDiff}px))`;
+      
+      e.preventDefault();
+    }, { passive: false });
+
+    carouselTrack.addEventListener('touchend', function(e) {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      carouselTrack.style.transition = 'transform 0.3s ease-out';
+      
+      const diff = currentX - startX;
+      const slideWidth = carouselTrack.clientWidth;
+      
+      let newIndex = currentIndex;
+      
+      if (Math.abs(diff) > slideWidth * 0.2) {
+        if (diff > 0) {
+          newIndex = currentIndex - 1;
+        } else {
+          newIndex = currentIndex + 1;
+        }
+      }
+      
+      newIndex = Math.max(0, Math.min(totalSlides - 1, newIndex));
+      
+      updateCarousel(newIndex, true);
+      checkAndJump();
+      
+      startX = 0;
+      currentX = 0;
+    });
+
+    carouselTrack.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+    });
+
+    // ========== VALIDATION & ENVOI GOOGLE SHEETS ==========
+    const form = document.getElementById('orderForm');
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwvr2ftKhKPR4WErn_QoU93Zxo8znjAppQ3s3IpLyv5Iq0Eqe0--M2tgLoln40n5W2hWg/exec'; 
+
+    function clearFieldErrors() {
+      document.querySelectorAll('.field-error').forEach(el => {
+        el.classList.remove('field-error');
+      });
+    }
+
+    function scrollToFirstInvalid() {
+      clearFieldErrors();
+      
+      const nom = document.getElementById('nom');
+      const tel = document.getElementById('tel');
+      const couleur = document.querySelector('input[name="couleur"]:checked');
+      const wilaya = document.getElementById('wilaya');
+      const adresse = document.getElementById('adresse');
+      
+      if (!nom.value.trim()) {
+        nom.classList.add('field-error');
+        nom.focus({ preventScroll: true });
+        nom.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return true;
+      }
+      
+      if (!tel.value.trim()) {
+        tel.classList.add('field-error');
+        tel.focus({ preventScroll: true });
+        tel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return true;
+      }
+      
+      if (!couleur) {
+        document.querySelector('.color-options').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        alert('Veuillez choisir une couleur');
+        return true;
+      }
+      
+      if (!wilaya.value) {
+        wilaya.classList.add('field-error');
+        wilaya.focus({ preventScroll: true });
+        wilaya.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return true;
+      }
+      
+      if (!adresse.value.trim()) {
+        adresse.classList.add('field-error');
+        adresse.focus({ preventScroll: true });
+        adresse.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return true;
+      }
+      
+      return false;
+    }
+
+    function validateForm() {
+      let isValid = true;
+      document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
+
+      const nom = document.getElementById('nom');
+      if (!nom.value.trim()) {
+        document.getElementById('errorNom').textContent = 'Nom et prénom requis';
+        isValid = false;
+      }
+
+      const tel = document.getElementById('tel');
+      if (!tel.value.trim()) {
+        document.getElementById('errorTel').textContent = 'Numéro de téléphone obligatoire';
+        isValid = false;
+      }
+
+      const couleur = document.querySelector('input[name="couleur"]:checked');
+      if (!couleur) {
+        alert('Veuillez choisir une couleur');
+        isValid = false;
+      }
+
+      const wilaya = document.getElementById('wilaya');
+      if (!wilaya.value) {
+        document.getElementById('errorWilaya').textContent = 'Veuillez choisir une wilaya';
+        isValid = false;
+      }
+
+      const adresse = document.getElementById('adresse');
+      if (!adresse.value.trim()) {
+        document.getElementById('errorAdresse').textContent = 'Adresse requise';
+        isValid = false;
+      }
+
+      const qty = parseInt(quantiteInput.value, 10);
+      if (qty < 1 || isNaN(qty)) {
+        alert('La quantité doit être au moins 1');
+        isValid = false;
+      }
+      
+      const fraisActuel = getFraisActuel();
+      if (fraisActuel === 0 && wilaya.value) {
+        alert('Ce mode de livraison n\'est pas disponible pour cette wilaya');
+        isValid = false;
+      }
+      
+      if (!isValid) {
+        scrollToFirstInvalid();
+      }
+      
+      return isValid;
+    }
+
+    async function envoyerVersGoogleSheets(data) {
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        return true;
+      } catch (error) {
+        console.error('Erreur fetch Google Sheets:', error);
+        return false;
+      }
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!validateForm()) return;
+
+      const nomValue = document.getElementById('nom').value.trim();
+      const telValue = document.getElementById('tel').value.trim();
+      const couleurValue = document.querySelector('input[name="couleur"]:checked')?.value || '';
+      const wilayaValue = document.getElementById('wilaya').value;
+      const adresseValue = document.getElementById('adresse').value.trim();
+      const livraison = document.querySelector('input[name="livraisonType"]:checked')?.value || 'Stop Desk';
+      const quantite = parseInt(quantiteInput.value, 10);
+      
+      const fraisLivraison = getFraisActuel();
+      const totalProduit = PRIX_UNITAIRE * quantite;
+      const totalGeneral = totalProduit + fraisLivraison;
+
+      const commande = {
+        timestamp: new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Algiers' }),
+        nom: nomValue,
+        telephone: telValue,
+        wilaya: wilayaValue + ' - ' + couleurValue,
+        adresse: adresseValue,
+        typeLivraison: livraison,
+        quantite: quantite,
+        prixUnitaire: PRIX_UNITAIRE,
+        fraisLivraison: fraisLivraison,
+        total: totalGeneral,
+        statut: 'Nouvelle commande'
+      };
+
+      const feedbackDiv = document.getElementById('formFeedback');
+      feedbackDiv.innerHTML = '<div class="success-message" style="background:#fff3cd;">⏳ Envoi de votre commande...</div>';
+
+      const success = await envoyerVersGoogleSheets(commande);
+      
+      if (success) {
+        feedbackDiv.innerHTML = '<div class="success-message">✓ Merci ! Votre commande a été reçue. Nous vous contacterons sous 24h.</div>';
+        form.reset();
+        quantiteInput.value = 1;
+        document.getElementById('stopdesk').checked = true;
+        document.getElementById('rouge').checked = true;
+        document.getElementById('wilaya').value = '';
+        updatePrixTotal();
+        clearFieldErrors();
+      } else {
+        feedbackDiv.innerHTML = '<div class="success-message" style="background:#f8dddd; color:#a1312b;">❌ Erreur de connexion. Veuillez réessayer ou nous appeler.</div>';
+      }
+    });
+
+    document.getElementById('nom').addEventListener('input', function() {
+      this.classList.remove('field-error');
+    });
+    document.getElementById('tel').addEventListener('input', function() {
+      this.classList.remove('field-error');
+    });
+    document.getElementById('adresse').addEventListener('input', function() {
+      this.classList.remove('field-error');
+    });
+    document.getElementById('wilaya').addEventListener('change', function() {
+      this.classList.remove('field-error');
+    });
+  </script>
+</body>
+</html>
